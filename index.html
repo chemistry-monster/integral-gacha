@@ -51,6 +51,11 @@ async function gacha() {
   const res = await fetch("https://integral-gacha-api.tsukkayuu.workers.dev/");
   const data = await res.json();
 
+  if (data.error) {
+    alert(data.error);
+    return;
+  }
+
   const container = document.getElementById("questions");
   container.innerHTML = "";
 
